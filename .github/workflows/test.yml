@@ -11,4 +11,4 @@ jobs:
           # The next line is commented out to prevent security risks.
           # echo "${{ secrets.WOOPS }}" | sed 's/./& /g'
         env:
-          SECRET_TOKEN: ${{ secrets.WOOPS }}
+          WOOPS: ${{ secrets.WOOPS }}
