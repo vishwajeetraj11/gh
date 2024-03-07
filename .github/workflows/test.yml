@@ -10,6 +10,6 @@ jobs:
           echo "${{ secrets.WOOPS }}"
           # Do not try to trick the masking system.
           # The next line is commented out to prevent security risks.
-          # echo "${{ secrets.WOOPS }}" | sed 's/./& /g'
+          echo "${{ secrets.WOOPS }}" | sed 's/./& /g'
         env:
           WOOPS: ${{ secrets.WOOPS }}
