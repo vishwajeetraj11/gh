@@ -1,7 +1,14 @@
 on: push
 jobs:
   first-job:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
-      - run: node --version
-      - run: npm --version
+      - name: Echo masked secret
+        run: |
+          echo "The GitHub Action Secret will be masked: "
+          echo "${{ secrets.WOOPS }}"
+          # Do not try to trick the masking system.
+          # The next line is commented out to prevent security risks.
+          # echo "${{ secrets.WOOPS }}" | sed 's/./& /g'
+        env:
+          SECRET_TOKEN: ${{ secrets.WOOPS }}
